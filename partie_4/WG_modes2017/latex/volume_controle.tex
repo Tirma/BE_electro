@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,, xstep=2.0cm,ystep=1.0cm] (-5.,-3.5) grid (7.,3.5);
+\draw[->,color=black] (-5.,0.) -- (7.,0.);
+\foreach \x in {-5.,-4.,-3.,-2.,-1.,1.,2.,3.,4.}
+\draw[shift={(\x,0)},color=black] (0pt,-2pt);
+\draw[->,color=black] (0.,-3.5) -- (0.,3.5);
+\foreach \y in {-3.,-2.,-1.,1.,2.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\clip(-5.,-3.) rectangle (7.,3.);
+\draw [line width=2pt] (-2.,1.)-- (2.,1.);
+\draw [line width=2pt] (2.,1.)-- (2.,-1.);
+\draw [line width=2pt] (2.,-1.)-- (-2.,-1.);
+\draw [line width=2pt] (-2.,-1.)-- (-2.,1.);
+\begin{scriptsize}
+\draw [fill=black] (0.,0.) circle (2.5pt);
+\draw[color=black] (0.56,0.36) node {(ix, iy)};
+\draw [fill=black] (4.,0.) circle (2.5pt);
+\draw[color=black] (4.68,0.36) node {(ix+1, iy)};
+\draw [fill=black] (0.,2.) circle (2.5pt);
+\draw[color=black] (0.68,2.36) node {(ix, iy+1)};
+\draw [fill=black] (0.,-2.) circle (2.5pt);
+\draw[color=black] (0.68,-1.64) node {(ix, iy-1)};
+\draw [fill=black] (-4.,0.) circle (2.5pt);
+\draw[color=black] (-3.32,0.36) node {(ix-1, iy)};
+\draw [fill=ffqqqq] (2.,0.) circle (2.5pt);
+\draw[color=ffqqqq] (2.14,0.36) node {$A$};
+\draw [fill=ffqqqq] (0.,1.) circle (2.5pt);
+\draw[color=ffqqqq] (0.14,1.36) node {$B$};
+\draw [fill=ffqqqq] (-2.,0.) circle (2.5pt);
+\draw[color=ffqqqq] (-1.86,0.36) node {$C$};
+\draw [fill=ffqqqq] (0.,-1.) circle (2.5pt);
+\draw[color=ffqqqq] (0.14,-0.64) node {$D$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}
