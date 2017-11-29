@@ -1,0 +1,14 @@
+function [g]=solve(g,n)
+n=5;
+A = build_A(g);
+
+P = eye(g.Nx);
+Ap = P * A * P';
+[~,Dp] = eigs(Ap - diag((max(g.indice))^2), n, '-sm');
+lambda_p = diag(Dp) + max(g.indice);
+neff = sqrt(lambda_p);
+
+g.neff = neff
+
+
+end

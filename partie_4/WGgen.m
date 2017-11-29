@@ -29,7 +29,7 @@ indice=3.5;
 %On fait un saut d'indice
 g=insert(g, node1, 1);
 g=insert(g, node2, indice);
-g=insert(g, node3, 1);
+g=insert(g, node3, 1)
 end
 
 function g=uniform_grid(xmin, xmax, hx)
