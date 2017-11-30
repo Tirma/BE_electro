@@ -1,14 +1,12 @@
 function [g]=solve(g,n)
-n=5;
+
 A = build_A(g);
-
-P = eye(g.Nx);
+P = sparse(eye(g.Nx));
+P([1,g.Nx],:)=[];
 Ap = P * A * P';
-[~,Dp] = eigs(Ap - diag((max(g.indice))^2), n, '-sm');
-lambda_p = diag(Dp) + max(g.indice);
-neff = sqrt(lambda_p);
-
-g.neff = neff
-
+[~,Dp] = eigs(Ap - ((max(g.indice))^2)*eye(size(P,1)), n, 'sm'); %renvoie les n plus petites valeurs propres de la matrice
+lambda_p = diag(Dp) + max(g.indice)^2
+neff = sqrt(lambda_p)
+g.neff = neff;
 
 end
