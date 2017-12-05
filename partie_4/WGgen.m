@@ -7,18 +7,17 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen
+function g=WGgen(a,lambda)
 %clc
-clear all
+%clear all
 %close all
 
 h=0.01;
 g=uniform_grid(-5.0, 5.0, h);
-g.lambda=1.;
+g.lambda=lambda;
 
 % coordonnees des sommets du polygone
 % decrivant une portion du guide
-a = 0.3; %demi epaisseur du dielectrique en µm
 
 node1 = [-5 -a];
 node2 = [-a a];

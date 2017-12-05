@@ -3,7 +3,11 @@ clc
 clear all
 close all
 
-g = solve(WGgen,5);
+a = 0.3; %demie longueur du guide en µm
+lambda=1.;
+nombres_de_modes =5;
+
+g = solve(WGgen(a,lambda),nombres_de_modes);
 
 %Analytique
 disp("neff analytique : ");
@@ -22,4 +26,11 @@ for elt=g.Vp
     
 end
 hold off;
+
+%On effectue la resolution numerique pour Lx=2µm et lambda=1µm en changeant les
+%parametres a pour a=1 et lambda=1 dans le programme main.
+%Pour la resolution analytique, il faut refaire la demarche effectuée en
+%première partie du BE
+
+
 end
