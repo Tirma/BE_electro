@@ -8,11 +8,11 @@
 %
 
 function g=WGgen
-clc
+%clc
 clear all
-close all
+%close all
 
-h=0.1;
+h=0.01;
 g=uniform_grid(-5.0, 5.0, h);
 g.lambda=1.;
 
@@ -61,6 +61,7 @@ lst_in=find((g.p>xmin) & (g.p<xmax));
 g.nrg=g.nrg+1;
 g.reg(lst_in)=g.nrg;
 g.indice(lst_in)=indice;
+
 
 plot(g.p, g.indice, 'b-')
 plot(g.p(lst_in), ones(length(lst_in), 1), 'bo-')

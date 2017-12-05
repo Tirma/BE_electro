@@ -5,9 +5,9 @@
 %
 %Output : solutions neff des equations de dispersion pour les modes pairs
 %et impairs
-clc;
-clear all;
-close all;
+%clc;
+%clear all;
+%close all;
 
 lambda = 1;
 a = 0.3;
@@ -29,10 +29,10 @@ title('Difference equation de diffusion impaire');
 xlabel('neff');
 
 sol_pair = @(neff) diff_pair(neff,lambda,a,n); 
-disp(strcat('racine pair ', num2str(fzero(sol_pair,[1 1.1]))));
-disp(strcat('racine pair ', num2str(fzero(sol_pair,[2.7 2.8]))));
-disp(strcat('racine pair ', num2str(fzero(sol_pair,[3.4 3.45]))));
+disp(strcat("racine pair ", num2str(fzero(sol_pair,[1 1.1]))));
+disp(strcat("racine pair ", num2str(fzero(sol_pair,[2.7 2.8]))));
+disp(strcat("racine pair ", num2str(fzero(sol_pair,[3.4 3.45]))));
 
 sol_impair = @(neff) diff_impair(neff,lambda,a,n); 
-disp(strcat('racine impair ', num2str(fzero(sol_impair,[2 2.1]))));
-disp(strcat('racine impair ', num2str(fzero(sol_impair,[3.1 3.2]))));
+disp(strcat("racine impair ", num2str(fzero(sol_impair,[2 2.1]))));
+disp(strcat("racine impair ", num2str(fzero(sol_impair,[3.1 3.2]))));

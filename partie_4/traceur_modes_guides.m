@@ -1,9 +1,9 @@
 %Script tracant les modes pairs et impairs pour les indices effectifs :
 %neff_pair = 1.007, 2.7741, 3.4254
 %neff_impair = 2.0903, 3.1934
-clc;
-clear all;
-close all;
+%clc;
+%clear all;
+%close all;
 
 
 %Revoir les expression des champs pairs et impairs qui me paraissent
@@ -30,6 +30,7 @@ neffip2=3.1934;
 
 X = -2*a:pas:2*a;
 
+figure
 E_x = E_pair(X,lambda,a,n,neffp1,pas);
 plot(X,E_x,'y','LineWidth',3);
 hold on;
@@ -41,7 +42,7 @@ plot(X,E_x,'b','LineWidth',3);
 hold off;
 title('Modes quasi-TE pairs');
 xlabel('x(µm)');
-ylabel('Amplitude pour E0 = 10 V.µm-1');
+ylabel('Amplitude pour E0 = 1 V.µm-1');
 legend(strcat('neff=',num2str(neffp1)),strcat('neff=',num2str(neffp2)),strcat('neff=',num2str(neffp3)))
 
 
@@ -54,7 +55,7 @@ plot(X,E_x,'m','LineWidth',3);
 hold off;
 title('Modes quasi-TE impairs');
 xlabel('x(µm)');
-ylabel('Amplitude pour E0 = 10 V.µm-1');
+ylabel('Amplitude pour E0 = 1 V.µm-1');
 legend(strcat('neff=',num2str(neffip1)),strcat('neff=',num2str(neffip2)))
 
 
