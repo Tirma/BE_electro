@@ -12,7 +12,7 @@ function g=WGgen(a,lambda)
 %clear all
 %close all
 
-h=0.01;
+h=0.001;
 g=uniform_grid(-5.0, 5.0, h);
 g.lambda=lambda;
 
@@ -27,7 +27,7 @@ indice=3.5;
 
 %On fait un saut d'indice
 g=insert(g, node1, 1);
-g=insert(g, node2, indice);
+g=insert(g, node2, indice); %saut indice
 g=insert(g, node3, 1)
 end
 
