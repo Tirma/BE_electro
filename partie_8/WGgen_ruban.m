@@ -11,55 +11,71 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen
+function g=WGgen_ruban
 clc
 clear all
 close all
 
 h=0.1;
 g=uniform_grid(-5.0, 5.0, -3.0, 3.0, h, h);
-g.lambda=1.;
+g.lambda=1.55;
 
 % coordonnees des sommets du polygone
 % decrivant une portion du guide
 
-%On génere un guide ruban
+%On génere un guide ruban décrit par la figure 10 p47 de l'article de Stern
 %       x   y
 
-ruban = [
-        +1  +1;
-        -1  +1;
-        -1  +0;
-        -3  +0;
-        -3  -0.5;
-        +3  -0.5;
-        +3  +0;
-        +1  +0;
-        ];
-
- substrat = [
-        -3  -0.5;
-        -3  -2;
-        +3  -2;
-        +3  -0.5;
+InP_substrat = [
+        -4 -2;
+        -4 -1.4;
+        4 -1.4;
+        4 -2;
         ];
     
- cladding = [
-         +1  +1;
-        -1  +1;
-        -1  +0;
-        -3  +0;
-        -3  +2;
-        +3  +2;
-        +3  +0;
-        +1  +0;
-        ];
+InGaAsP = [
+    4 -1.4;
+    4 -1.2;
+    -4 -1.2;
+    -4 -1.4;
+];
+
+InP_guide = [
+    1 0.2-1;
+    1 2.2-1;
+    3.4 2.2-1;
+    3.4 0.2-1;
+    4 0.2-1;
+    4 -0.2-1;
+    -4 -0.2-1;
+    -4 0.2-1;
+    -3.4 0.2-1;
+    -3.4 2.2-1;
+    -1 2.2-1;
+    -1 0.2-1;
+    ];
+
+cladding = [
+    0 0.2-1;
+    1 0.2-1;
+    1 2.2-1;
+    3.4 2.2-1;
+    3.4 0.2-1;
+    4 0.2-1;
+    4 3-1;
+    -4 3-1;
+    -4 0.2-1;
+    -3.4 0.2-1;
+    -3.4 2.2-1;
+    -1 2.2-1;
+    -1 0.2-1;
+    ];
+
         
-   
-indice=3.5;
-g=insert(g, ruban, indice);
-g=insert(g, substrat, 1.3);
-g=insert(g, cladding,2);
+g=insert(g, InP_substrat,3.17);
+g=insert(g, InGaAsP, 3.38);
+g=insert(g, InP_guide,3.17);
+g=insert(g, cladding, 1);
 
 end
 

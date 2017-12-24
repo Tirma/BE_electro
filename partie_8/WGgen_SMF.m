@@ -11,91 +11,40 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen
-clc
-clear all
-close all
+function g=WGgen_SMF
 
-h=0.1;
-g=uniform_grid(-5.0, 5.0, -3.0, 3.0, h, h);
-g.lambda=1.;
+h=0.05;
+g=uniform_grid(-10.0, 10.0, -10.0, 10.0, h, h);
+g.lambda=1.31;
 
 % coordonnees des sommets du polygone
 % decrivant une portion du guide
 
-%On génere un guide de 2 rubans separés par une couche
-%       x   y
+%On génere la fibre optique SMF 28
 
-ruban1 = [
-        +0.8  +0.5;
-        -0.2  +0.5;
-        -0.2  +0;
-        -3  +0;
-        -3  -0.5;
-        +3  -0.5;
-        +3  +0;
-        +0.8  +0;
-        ];
+%Génération du coeur
+coeur=[];
+theta = 0;
+dtheta = atan(1)/10;
+rayon = 8.2/2;
+while theta<2*pi
+    coeur = [coeur; rayon*real(exp(complex(i)*theta))...
+                    rayon*imag(exp(complex(i)*theta));];
+    theta = theta + dtheta;
+end
 
-substrat1 = [
-        -3  -0.5;
-        -3  -2;
-        +3  -2;
-        +3  -0.5;
-        ];
-    
-substrat2 = [
-        -3  +1;
-        -3  +1.5;
-        +3  +1.5;
-        +3  +1;
-        ];
-    
- cladding1 = [
-         +0.8  +0.5;
-        -0.2  +0.5;
-        -0.2  +0;
-        -3  +0;
-        -3  +1;
-        +3  +1;
-        +3  +0;
-        +0.8  +0;
-        ];
+gaine=[];
+theta = 0;
+dtheta = atan(1)/10;
+rayon = 10; %core cladding concentrity <12µm, notre limite est 10
+while theta<2*pi
+    gaine = [gaine; rayon*real(exp(complex(i)*theta))...
+                    rayon*imag(exp(complex(i)*theta));];
+    theta = theta + dtheta;
+end
 
-ruban2 = [
-        -0.8  +2.5;
-        -0.8  +2;
-        -3  +2;
-        -3  +1.5;
-        +3  1.5;
-        +3  +2;
-        +0.2  +2;
-        +0.2  2.5;
-        ];        
-    
-
-cladding2 = [
-        -0.8  +2.5;
-        -0.8  +2;
-        -3  +2;
-        -3  +3;
-        +3  3;
-        +3  +2;
-        +0.2  +2;
-        +0.2  2.5;
-        ];        
- 
-
-indice=3.5;
-g=insert(g, ruban1, indice);
-g=insert(g, substrat1, 1.3);
-g=insert(g, cladding1,2);
-g=insert(g, substrat2, 1.3);
-g=insert(g, ruban2, indice);
-g=insert(g, cladding2,2);
-
-
-
+g=insert(g, gaine, 1);
+g=insert(g, coeur, 1.36);
 
 end
 
