@@ -13,7 +13,7 @@
 
 function g=WGgen_SMF
 
-h=0.05;
+h=0.1;
 g=uniform_grid(-10.0, 10.0, -10.0, 10.0, h, h);
 g.lambda=1.31;
 
