@@ -11,9 +11,10 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen_SMF(h,c)
+function g=WGgen_SMF
 
-
+h=0.13;
+c=10.0;
 g=uniform_grid(-c, c, -c, c, h, h);
 g.lambda=1.31;
 
@@ -36,15 +37,19 @@ end
 gaine=[];
 theta = 0;
 dtheta = atan(1)/10;
-rayon = 10; %core cladding concentrity <12µm, on prends 20µ de diametre par precaution
+rayon = 10; %Le rayon vaudrait 125 micron ce qui n'est pas faisable avec notre
+%ordinateur et le temps dont nous disposons. Cependant le MDF des deux premiers
+%modes est d'environ 10 micron de diamètre. Par sécurité nous prendrons le double. 
+%Quoi qu il en soit l'intensité de l'onte est comprise à 99% dans le MDF.
+%L'influence de ce choix devrait être limité.
 while theta<2*pi
     gaine = [gaine; rayon*real(exp(complex(i)*theta))...
                     rayon*imag(exp(complex(i)*theta));];
     theta = theta + dtheta;
 end
 
-g=insert(g, gaine, 1.46);
-g=insert(g, coeur, 1.4636);
+g=insert(g, gaine, 1);
+g=insert(g, coeur, 1.36);
 
 end
 
@@ -69,6 +74,7 @@ g.p     = [g.x(:),g.y(:)];
 
 g.reg =zeros(g.Nx, g.Ny);
 g.indice =ones(g.Nx, g.Ny);
+size(g.indice)
 
 g.N=g.Nx*g.Ny;
 g.nrg=0;
