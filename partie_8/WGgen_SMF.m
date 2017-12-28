@@ -11,10 +11,8 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen_SMF
+function g=WGgen_SMF(h,c)
 
-h=0.13;
-c=10.0;
 g=uniform_grid(-c, c, -c, c, h, h);
 g.lambda=1.31;
 
