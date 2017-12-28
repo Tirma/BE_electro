@@ -19,7 +19,7 @@ clc
 
 
 pas = 0.12; %pas h de discretisation en micro m
-cote = 10; % demi dimension du guide
+cote = 20; % demi dimension du guide
 g_SMF = WGgen_SMF(pas,cote);
 g_SMF = TE_solve(g_SMF,2);
 g_SMF.neff
