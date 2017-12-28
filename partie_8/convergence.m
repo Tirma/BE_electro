@@ -19,7 +19,7 @@ function convergence
 
 fic = fopen("conv2.csv",'w');
 fprintf(fic, '%s;%s;%s\n',["h","neff1","neff2"]);
-for elt = 10:0.1:18
+for elt = 10:0.01:12.5
     elt
     g=WGgen_SMF(0.2,elt);
     g = TE_solve(g,2);

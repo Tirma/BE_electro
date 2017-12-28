@@ -46,8 +46,8 @@ while theta<2*pi
     theta = theta + dtheta;
 end
 
-g=insert(g, gaine, 1);
-g=insert(g, coeur, 1.36);
+g=insert(g, gaine, 1.46);
+g=insert(g, coeur, 1.4636);
 
 end
 

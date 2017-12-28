@@ -19,17 +19,17 @@ clc
 
 
 pas = 0.12; %pas h de discretisation en micro m
-cote = 20; % demi dimension du guide
+cote = 10; % demi dimension du guide
 g_SMF = WGgen_SMF(pas,cote);
 g_SMF = TE_solve(g_SMF,2);
 g_SMF.neff
-%  Z = display_mode(g_SMF,1);
-%  figure;
-%  surf(g_SMF.x,g_SMF.y,Z);
-%  Z = display_mode(g_SMF,2);
-%  figure;
-%  surf(g_SMF.x,g_SMF.y,Z);
-%  
-%  cutline(g_SMF,1,-10,0,10,0);
+Z = display_mode(g_SMF,1);
+figure;
+surf(g_SMF.x,g_SMF.y,Z);
+Z = display_mode(g_SMF,2);
+figure;
+surf(g_SMF.x,g_SMF.y,Z);
+  
+  cutline(g_SMF,1,-10,0,10,0);
 
 end
