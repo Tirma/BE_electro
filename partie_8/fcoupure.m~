@@ -1,0 +1,20 @@
+%calcul de la fréquence de coupure du second mode
+
+function fcoupure
+
+fic = fopen("fcoupure.csv",'w');
+fprintf(fic, '%s;%s;%s\n',["lambda","result"]);
+for lambda = 10:0.01:12.5
+    g=WGgen_SMF(0.2,elt);
+    g.lambda = lambda;
+    g = TE_solve(g,2);
+    neff2=g.neff(2);
+    
+    
+    fprintf(fic, '%f;%f;%f\n',[elt neff1 neff2]);
+
+
+
+end
+   fclose(fic);
+end
