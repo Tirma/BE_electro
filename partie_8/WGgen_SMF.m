@@ -14,7 +14,7 @@
 function g=WGgen_SMF(h,c)
 
 g=uniform_grid(-c, c, -c, c, h, h);
-g.lambda=1.31;
+g.lambda=1.035;
 
 % coordonnees des sommets du polygone
 % decrivant une portion du guide
