@@ -11,3 +11,7 @@ g = WGgen(a,lambda);%Structure représentant le guide optique se refferer à WGg
 g = TM_solve(g,n_modes);
 figure;
 plot(g.x,g.V,"LineWidth",3);
+xlabel("x");
+ylabel("Amplitude");
+title("x-component of the electric field (quasi-TM modes)");
+legend(strcat('neff=',num2str(g.neff(1))),strcat('neff=',num2str(g.neff(2))),strcat('neff=',num2str(g.neff(3))),strcat('neff=',num2str(g.neff(4))))
