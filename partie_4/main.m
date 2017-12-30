@@ -26,6 +26,11 @@ for elt=g.Vp
     
 end
 hold off;
+xlabel("x");
+ylabel("Amplitude")
+title("y-component of the electric fiell (modes quasi-TE)")
+legend(strcat('neff=',num2str(g.neff(1))),strcat('neff=',num2str(g.neff(2))),strcat('neff=',num2str(g.neff(3))),strcat('neff=',num2str(g.neff(4))),strcat('neff=',num2str(g.neff(5))))
+
 
 %On effectue la resolution numerique pour Lx=2µm et lambda=1µm en changeant les
 %parametres a pour a=1 et lambda=1 dans le programme main.

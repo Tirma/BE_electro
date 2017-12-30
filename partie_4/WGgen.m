@@ -12,7 +12,7 @@ function g=WGgen(a,lambda)
 %clear all
 %close all
 
-h=0.01;
+h=0.001;
 g=uniform_grid(-5.0, 5.0, h);
 g.lambda=lambda;
 
