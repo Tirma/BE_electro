@@ -7,21 +7,15 @@
 % Finite Difference Analysis of Planar Optical Waveguides
 %
 
-function g=WGgen(a,lambda,h,c)
+function g=WGgen(a,lambda)
 %clc
 %clear all
 %close all
 if nargin>4
-    error("myfuns:WGgen:TooManyInputs","maximum is 4 parameters");
-end
-switch nargin
-    case 2
-        h=0.001;
-        c = 5;
-end
-h
-c
-g=uniform_grid(-c, c, h);
+    error(,"maximum is 4 parameters");
+
+h=0.001;
+g=uniform_grid(-5.0, 5.0, h);
 g.lambda=lambda;
 
 % coordonnees des sommets du polygone
